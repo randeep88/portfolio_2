@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Google_Sans, DM_Sans } from "next/font/google";
+import { Google_Sans, DM_Sans, Lato, Noto_Sans } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "../components/SmoothScrollProvider";
 
@@ -8,9 +8,21 @@ const googleSans = Google_Sans({
   subsets: ["latin"],
 });
 
+const lato = Lato({
+  variable: "--font-lato",
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "700", "900"],
+});
+
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
+});
+
+const notoSans = Noto_Sans({
+  variable: "--font-noto-sans",
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${dmSans.variable} dark antialiased`}>
+      <body className={`${notoSans.variable} dark antialiased`}>
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>

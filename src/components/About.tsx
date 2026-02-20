@@ -7,6 +7,18 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const smoothScrollTo = (targetId: string) => {
+  const target = document.getElementById(targetId);
+  if (!target) return;
+
+  const targetY = target.getBoundingClientRect().top + window.scrollY;
+
+  window.scrollTo({
+    top: targetY,
+    behavior: "smooth",
+  });
+};
+
 const About = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -19,7 +31,6 @@ const About = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // ─── React Logo — left se scrub ke saath slide in ───
       gsap.fromTo(
         reactImgRef.current,
         { x: -400, y: 1000, opacity: 0 },
@@ -159,10 +170,11 @@ const About = () => {
         </p>
 
         <div
+          onClick={() => smoothScrollTo("contact")}
           ref={btnRef}
           className="text-2xl cursor-pointer font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-blue-500 rounded-full p-2 px-4"
         >
-          <h1 className="tracking-tighter flex items-center gap-2 text-center uppercase font-extrabold w-full bg-linear-to-r from-violet-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
+          <h1 className="tracking-tighter flex items-center gap-2 text-center uppercase font-extrabold w-full bg-linear-to-br from-blue-500 to-pink-500 bg-clip-text text-transparent">
             contact me
           </h1>
         </div>

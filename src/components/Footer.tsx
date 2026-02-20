@@ -28,9 +28,11 @@ const socialLinks = [
   { label: "Linkedin", href: "https://www.linkedin.com/in/randeep-singh88/" },
 ];
 
-const navLinks = [
+const navLinks1 = [
   { label: "Home", href: "home" },
   { label: "About", href: "about" },
+];
+const navLinks2 = [
   { label: "Skills", href: "skills" },
   { label: "Projects", href: "projects" },
   { label: "Contact", href: "contact" },
@@ -81,8 +83,8 @@ const Footer = () => {
           <br />
           Singh
         </h1>
-        <div className="flex flex-col items-start justify-center gap-5 h-full ">
-          {navLinks.map(({ label, href }) => (
+        <div className="flex flex-col items-start justify-center gap-5 h-full">
+          {navLinks1.map(({ label, href }) => (
             <button
               key={href}
               onClick={() => smoothScrollTo(href)}
@@ -100,16 +102,24 @@ const Footer = () => {
           ))}
         </div>
         <div className="flex flex-col items-start justify-center gap-5 h-full">
-          <button className="group relative cursor-pointer">
-            <span className="relative inline-flex overflow-hidden hover:text-primary text-xl">
-              <div className="translate-y-0 skew-y-0 uppercase transition duration-500 group-hover:-translate-y-[120%] group-hover:skew-y-12">
-                Social Links
-              </div>
-              <div className="absolute translate-y-[114%] uppercase skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
-                Social Links
-              </div>
-            </span>
-          </button>
+          {navLinks2.map(({ label, href }) => (
+            <button
+              key={href}
+              onClick={() => smoothScrollTo(href)}
+              className="group relative cursor-pointer"
+            >
+              <span className="relative inline-flex overflow-hidden hover:text-primary text-xl">
+                <div className="translate-y-0 skew-y-0 uppercase transition duration-500 group-hover:-translate-y-[120%] group-hover:skew-y-12">
+                  {label}
+                </div>
+                <div className="absolute translate-y-[114%] uppercase skew-y-12 transition duration-500 group-hover:translate-y-0 group-hover:skew-y-0">
+                  {label}
+                </div>
+              </span>
+            </button>
+          ))}
+        </div>
+        <div className="flex flex-col items-start justify-center gap-5 h-full">
           {socialLinks.map(({ label, href }) => (
             <Link
               target="_blank"

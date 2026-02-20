@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { icons } from "./svgs";
-import { Skills } from "./Skills";
+import { ScrollingLogos } from "./ScrollingLogos";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -154,7 +154,7 @@ const Projects = () => {
           </ScrollStackItem>
         ))}
       </ScrollStack>
-      <Skills />
+      <ScrollingLogos />
     </div>
   );
 };
