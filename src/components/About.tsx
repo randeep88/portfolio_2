@@ -101,53 +101,16 @@ const About = () => {
       });
 
       gsap.to(paraRef.current, {
-        clipPath: "inset(0% 0 0 0)",
+        clipPath: "inset(0 0 0% 0%)",
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 70%",
+          start: "top 60%",
           end: "top 20%",
           scrub: 1.2,
         },
       });
 
-      // gsap.fromTo(
-      //   headingRef.current,
-      //   { y: 200, opacity: 0 },
-      //   {
-      //     x: 0,
-      //     y: 0,
-      //     opacity: 1,
-      //     skewX: 0,
-      //     ease: "none",
-      //     scrollTrigger: {
-      //       trigger: sectionRef.current,
-      //       start: "top 100%",
-      //       end: "top 25%",
-      //       scrub: 1,
-      //     },
-      //   },
-      // );
-
-      // ─── Paragraph — diagonal bottom-right, scrub ───
-      // gsap.fromTo(
-      //   paraRef.current,
-      //   { x: 100, y: 100, opacity: 0, skewX: -10 },
-      //   {
-      //     x: 0,
-      //     y: 0,
-      //     opacity: 1,
-      //     skewX: 0,
-      //     ease: "none",
-      //     scrollTrigger: {
-      //       trigger: sectionRef.current,
-      //       start: "top 80%",
-      //       end: "top 20%",
-      //       scrub: 1,
-      //     },
-      //   },
-      // );
-      // Spin only when logo is visible
       ScrollTrigger.create({
         trigger: sectionRef.current,
         start: "top 70%",
@@ -166,10 +129,10 @@ const About = () => {
       {/* Heading */}
       <div className="flex justify-center items-center">
         <h1
-          className="text-[11rem] uppercase font-extrabold tracking-tighter text-transparent bg-clip-text"
+          className="text-[11rem] px-2 uppercase font-extrabold tracking-tighter text-transparent bg-clip-text"
           style={{
-            WebkitTextStroke: "2px white", // sirf border/stroke shuru mein
-            backgroundImage: "linear-gradient(to right, white, white)",
+            WebkitTextStroke: "1px #e5e7ebcc", // sirf border/stroke shuru mein
+            backgroundImage: "linear-gradient(to right, #e5e7ebcc, #e5e7ebcc)",
             backgroundSize: "0% 100%",
             backgroundRepeat: "no-repeat",
           }}
@@ -185,7 +148,7 @@ const About = () => {
           ref={paraRef}
           className="text-2xl font-bold text-white/70 leading-relaxed tracking-wide"
           style={{
-            clipPath: "inset(100% 0 0 0)", // shuru mein pura hidden (top se start)
+            clipPath: "inset(0 0 100% 0)",
           }}
         >
           Just a developer who loves building real things. I mainly work with
@@ -205,7 +168,6 @@ const About = () => {
         </div>
       </div>
 
-      {/* React Logo */}
       <div ref={reactImgRef} className="absolute top-10 left-10 opacity-0">
         <Image src="/react1.png" alt="React Logo" width={200} height={200} />
       </div>

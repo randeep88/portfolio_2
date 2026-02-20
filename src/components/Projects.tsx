@@ -20,12 +20,13 @@ const projects = [
     code: "https://github.com/randeep88/kodehole",
     live: "https://kodehole.vercel.app/",
     techstack: [
-      icons.next,
-      icons.typescript,
-      icons.cloudflare,
-      icons.mongodb,
-      icons.authjs,
-      icons.tailwind,
+      icons.mini_next,
+      icons.mini_typescript,
+      icons.mini_cloudflare,
+      icons.mini_mongodb,
+      icons.mini_authjs,
+      icons.mini_tailwind,
+      icons.mini_zustand,
     ],
   },
   {
@@ -37,12 +38,13 @@ const projects = [
     code: "https://github.com/randeep88/nebula_frontend",
     live: "https://nebula-frontend-one.vercel.app/",
     techstack: [
-      icons.react,
-      icons.nodejs,
-      icons.express,
-      icons.mongodb,
-      icons.jwt,
-      icons.tailwind,
+      icons.mini_react,
+      icons.mini_nodejs,
+      icons.mini_express,
+      icons.mini_mongodb,
+      icons.mini_jwt,
+      icons.mini_tailwind,
+      icons.mini_zustand,
     ],
   },
   {
@@ -53,7 +55,12 @@ const projects = [
     image: "/verdant.png",
     code: "https://github.com/randeep88/verdant-stay",
     live: "https://the-verdant-stay.netlify.app/",
-    techstack: [icons.react, icons.js, icons.supabase, icons.tailwind],
+    techstack: [
+      icons.mini_react,
+      icons.mini_js,
+      icons.mini_supabase,
+      icons.mini_tailwind,
+    ],
   },
 ];
 
@@ -63,26 +70,15 @@ const Projects = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        headingRef.current,
-        { y: 200, opacity: 0 },
-        {
-          x: 0,
-          y: 0,
-          opacity: 1,
-          skewX: 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 100%",
-            end: "top 25%",
-            scrub: 1,
-          },
+      gsap.to(headingRef.current, {
+        backgroundSize: "100% 100%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 90%",
+          end: "top 10%",
+          scrub: 1,
         },
-      );
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top 70%",
       });
     }, sectionRef);
 
@@ -91,8 +87,14 @@ const Projects = () => {
   return (
     <div id="projects" ref={sectionRef} className="select-none mt-10 relative">
       <h1
+        className="text-[11rem] text-center uppercase font-extrabold -mb-30 tracking-tighter text-transparent bg-clip-text"
+        style={{
+          WebkitTextStroke: "1px #e5e7ebcc",
+          backgroundImage: "linear-gradient(to right, #e5e7ebcc, #e5e7ebcc)",
+          backgroundSize: "0% 100%",
+          backgroundRepeat: "no-repeat",
+        }}
         ref={headingRef}
-        className="text-[11rem] text-center uppercase font-extrabold -mb-40 tracking-tighter text-primary/80 opacity-0"
       >
         Projects
       </h1>
@@ -139,7 +141,7 @@ const Projects = () => {
                 </div>
                 <div className="flex-1 w-full text-lg h-full flex flex-col items-between">
                   <div className="text-primary h-full">{item.description}</div>
-                  <div className="rounded-4xl flex items-center flex-wrap gap-5">
+                  <div className="rounded-4xl flex items-center flex-wrap gap-4">
                     {item.techstack.map((Icon: any, idx: number) => (
                       <div key={idx}>
                         <Icon />

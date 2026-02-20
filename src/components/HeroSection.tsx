@@ -54,7 +54,11 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative h-screen w-full select-none">
+    <div
+      id="home"
+      ref={containerRef}
+      className="relative h-screen w-full select-none"
+    >
       <Navbar />
 
       <div className="w-full flex justify-center items-center select-none">
