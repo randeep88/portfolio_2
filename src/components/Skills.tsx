@@ -109,12 +109,12 @@ const Skills = () => {
     <div
       id="skills"
       ref={sectionRef}
-      className="relative mt-10 h-screen w-full flex flex-col items-center justify-start select-none overflow-hidden"
+      className="relative mt-10 min-h-screen w-full flex flex-col items-center justify-start select-none overflow-hidden"
     >
       {/* Heading */}
       <div className="flex justify-center gap-2 items-end">
         <h1
-          className="text-[11rem] px-2 uppercase font-extrabold tracking-tighter text-transparent bg-clip-text"
+          className="lg:text-[11rem] mb-10 text-6xl px-2 uppercase font-extrabold tracking-tighter text-transparent bg-clip-text"
           style={{
             WebkitTextStroke: "1px #e5e7ebcc",
             backgroundImage: "linear-gradient(to right, #e5e7ebcc, #e5e7ebcc)",
@@ -125,7 +125,7 @@ const Skills = () => {
         >
           Skills
         </h1>
-        <h1 className="text-xl px-2 pb-13 uppercase font-extrabold tracking-tighter text-primary/80">
+        <h1 className="text-xl lg:pb-13 pb-11 uppercase font-extrabold tracking-tighter text-primary/80">
           & Tools
         </h1>
       </div>
@@ -133,100 +133,114 @@ const Skills = () => {
       {/* Skills */}
       <div
         ref={skillsRef}
-        className="grid grid-cols-[1.4fr_1fr_1fr_1fr_1fr] px-10"
+        className="grid lg:grid-cols-3 grid-cols-1 lg:px-10 w-full lg:gap-7 gap-10 px-5"
       >
         <div ref={(el: any) => el && (columnsRef.current[0] = el)}>
-          <h1 className="text-xl px-2 mb-4 text-center uppercase font-semibold tracking-tighter text-primary/90">
+          <h1 className="lg:text-xl text-lg px-2 mb-4 text-center uppercase font-semibold tracking-tighter text-primary/90">
             Frontend
           </h1>
-          <div className="grid grid-cols-2 items-center gap-2">
+          <div className="grid grid-cols-2 gap-2 lg:px-5 px-0">
             {skills?.frontend?.map((skill, index) => (
               <div
                 key={index}
-                className="flex items-center gap-2 border border-primary/20 rounded-lg p-1 px-2"
+                className="flex items-center gap-1 border border-primary/20 rounded-lg lg:p-1 lg:px-2 pe-2 px-1 p-0.5"
               >
-                <div className="scale-75">
+                <div className="lg:scale-75 scale-60">
                   <skill.icon />
                 </div>
-                <h1 className="text-lg text-primary/90">{skill.name}</h1>
+                <h1 className="lg:text-lg text-sm text-primary/90">
+                  {skill.name}
+                </h1>
               </div>
             ))}
           </div>
         </div>
 
-        <div ref={(el: any) => el && (columnsRef.current[1] = el)}>
-          <h1 className="text-xl px-2 mb-4 text-center uppercase font-semibold tracking-tighter text-primary/90">
-            backend
-          </h1>
-          <div className="flex flex-col items-center gap-2">
-            {skills?.backend?.map((skill, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 border border-primary/20 rounded-lg p-1 px-2"
-              >
-                <div className="scale-75">
-                  <skill.icon />
+        <div className="grid grid-cols-2 lg:grid-cols-2 lg:gap-7 gap-5">
+          <div ref={(el: any) => el && (columnsRef.current[1] = el)}>
+            <h1 className="lg:text-xl text-lg px-2 mb-4 text-center uppercase font-semibold tracking-tighter text-primary/90">
+              backend
+            </h1>
+            <div className="flex flex-col gap-2 lg:px-5 px-0">
+              {skills?.backend?.map((skill, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-1 border border-primary/20 rounded-lg lg:p-1 lg:px-2 pe-2 px-1 p-0.5"
+                >
+                  <div className="lg:scale-75 scale-60">
+                    <skill.icon />
+                  </div>
+                  <h1 className="lg:text-lg text-sm text-primary/90">
+                    {skill.name}
+                  </h1>
                 </div>
-                <h1 className="text-lg text-primary/90">{skill.name}</h1>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          <div ref={(el: any) => el && (columnsRef.current[2] = el)}>
+            <h1 className="lg:text-xl text-lg px-2 mb-4 text-center uppercase font-semibold tracking-tighter text-primary/90">
+              cloud / DevOps
+            </h1>
+            <div className="flex flex-col gap-2 lg:px-5 px-0">
+              {skills?.cloud?.map((skill, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-1 border border-primary/20 rounded-lg lg:p-1 lg:px-2 pe-2 px-1 p-0.5"
+                >
+                  <div className="lg:scale-75 scale-60">
+                    <skill.icon />
+                  </div>
+                  <h1 className="lg:text-lg text-sm text-primary/90">
+                    {skill.name}
+                  </h1>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div ref={(el: any) => el && (columnsRef.current[2] = el)}>
-          <h1 className="text-xl px-2 mb-4 text-center uppercase font-semibold tracking-tighter text-primary/90">
-            cloud / DevOps
-          </h1>
-          <div className="flex flex-col items-center gap-2">
-            {skills?.cloud?.map((skill, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 border border-primary/20 rounded-lg p-1 px-2"
-              >
-                <div className="scale-75">
-                  <skill.icon />
+        <div className="grid grid-cols-2 lg:grid-cols-2 lg:gap-7 gap-5">
+          <div ref={(el: any) => el && (columnsRef.current[3] = el)}>
+            <h1 className="lg:text-xl text-lg px-2 mb-4 text-center uppercase font-semibold tracking-tighter text-primary/90">
+              databases
+            </h1>
+            <div className="flex flex-col gap-2 lg:px-5 px-0">
+              {skills?.databases?.map((skill, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-1 border border-primary/20 rounded-lg lg:p-1 lg:px-2 pe-2 px-1 p-0.5"
+                >
+                  <div className="lg:scale-75 scale-60">
+                    <skill.icon />
+                  </div>
+                  <h1 className="lg:text-lg text-sm text-primary/90">
+                    {skill.name}
+                  </h1>
                 </div>
-                <h1 className="text-lg text-primary/90">{skill.name}</h1>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div ref={(el: any) => el && (columnsRef.current[3] = el)}>
-          <h1 className="text-xl px-2 mb-4 text-center uppercase font-semibold tracking-tighter text-primary/90">
-            databases
-          </h1>
-          <div className="flex flex-col items-center gap-2">
-            {skills?.databases?.map((skill, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 border border-primary/20 rounded-lg p-1 px-2"
-              >
-                <div className="scale-75">
-                  <skill.icon />
+          <div ref={(el: any) => el && (columnsRef.current[4] = el)}>
+            <h1 className="lg:text-xl text-lg px-2 mb-4 text-center uppercase font-semibold tracking-tighter text-primary/90">
+              tools
+            </h1>
+            <div className="flex flex-col gap-2 lg:px-5 px-0">
+              {skills?.tools?.map((skill, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-1 border border-primary/20 rounded-lg lg:p-1 lg:px-2 pe-2 px-1 p-0.5"
+                >
+                  <div className="lg:scale-75 scale-60">
+                    <skill.icon />
+                  </div>
+                  <h1 className="lg:text-lg text-sm text-primary/90">
+                    {skill.name}
+                  </h1>
                 </div>
-                <h1 className="text-lg text-primary/90">{skill.name}</h1>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div ref={(el: any) => el && (columnsRef.current[4] = el)}>
-          <h1 className="text-xl px-2 mb-4 text-center uppercase font-semibold tracking-tighter text-primary/90">
-            tools
-          </h1>
-          <div className="flex flex-col items-center gap-2">
-            {skills?.tools?.map((skill, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 border border-primary/20 rounded-lg p-1 px-2"
-              >
-                <div className="scale-75">
-                  <skill.icon />
-                </div>
-                <h1 className="text-lg text-primary/90">{skill.name}</h1>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

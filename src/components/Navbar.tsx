@@ -22,12 +22,12 @@ const navLinks = [
 
 const Navbar = () => {
   return (
-    <div className="flex w-full justify-around py-5 items-center px-10 text-primary/80 font-bold uppercase text-2xl">
+    <div className="flex w-full lg:justify-around justify-between py-5 lg:px-10 px-3 items-center text-primary/80 font-bold uppercase lg:text-2xl">
       {navLinks.map(({ label, href }) => (
         <button
           key={href}
           onClick={() => smoothScrollTo(href)}
-          className="group relative cursor-pointer"
+          className="group relative cursor-pointer tracking-tighter"
         >
           <span className="relative inline-flex overflow-hidden hover:text-primary">
             <div className="translate-y-0 skew-y-0 uppercase transition duration-500 group-hover:-translate-y-[120%] group-hover:skew-y-12">

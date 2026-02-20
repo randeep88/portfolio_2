@@ -2,6 +2,7 @@ import About from "../components/About";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection";
+import Home from "../components/p";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 
@@ -11,7 +12,9 @@ const HomePage = () => {
       <HeroSection />
       <About />
       <Skills />
-      <Projects />
+      <div className="relative z-10 overflow-visible">
+        <Projects />
+      </div>
       <Contact />
       <Footer />
     </div>

@@ -31,74 +31,93 @@ const About = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        reactImgRef.current,
-        { x: -400, y: 1000, opacity: 0 },
-        {
-          x: 0,
-          y: 0,
-          opacity: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 90%",
-            end: "top 30%",
-            scrub: 1,
-          },
-        },
-      );
+      const mm = gsap.matchMedia();
 
-      gsap.fromTo(
-        jsImgRef.current,
-        { x: 400, y: 500, opacity: 0 },
-        {
-          x: 0,
-          y: 0,
-          opacity: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 90%",
-            end: "top 10%",
-            scrub: 1,
-          },
-          delay: 2,
-        },
-      );
-      gsap.fromTo(
-        nodeImgRef.current,
-        { x: -400, y: -400, opacity: 0 },
+      // Desktop
+      mm.add("(min-width: 1024px)", () => {
+        animateImages(400, 1000);
+      });
 
-        {
-          x: 0,
-          y: 0,
-          opacity: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 90%",
-            end: "top 10%",
-            scrub: 1.2,
-          },
-        },
-      );
+      // Tablet
+      mm.add("(min-width: 640px) and (max-width: 1023px)", () => {
+        animateImages(250, 600);
+      });
 
-      gsap.fromTo(
-        nextImgRef.current,
-        { x: 400, y: -400, opacity: 0 },
-        {
-          x: 0,
-          y: 0,
-          opacity: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 90%",
-            end: "top 5%",
-            scrub: 1,
+      // Mobile
+      mm.add("(max-width: 639px)", () => {
+        animateImages(150, 300);
+      });
+
+      function animateImages(xOffset: number, yOffset: number) {
+        gsap.fromTo(
+          reactImgRef.current,
+          { x: -xOffset, y: yOffset, opacity: 0 },
+          {
+            x: 0,
+            y: 0,
+            opacity: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 90%",
+              end: "top 30%",
+              scrub: 1,
+            },
           },
-        },
-      );
+        );
+
+        gsap.fromTo(
+          jsImgRef.current,
+          { x: xOffset, y: yOffset / 2, opacity: 0 },
+          {
+            x: 0,
+            y: 0,
+            opacity: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 90%",
+              end: "top 10%",
+              scrub: 1,
+            },
+          },
+        );
+
+        gsap.fromTo(
+          nodeImgRef.current,
+          { x: -xOffset, y: -yOffset / 2, opacity: 0 },
+
+          {
+            x: 0,
+            y: 0,
+            opacity: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 90%",
+              end: "top 10%",
+              scrub: 1.2,
+            },
+          },
+        );
+
+        gsap.fromTo(
+          nextImgRef.current,
+          { x: xOffset, y: yOffset / 2, opacity: 0 },
+          {
+            x: 0,
+            y: 0,
+            opacity: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 90%",
+              end: "top 5%",
+              scrub: 1,
+            },
+          },
+        );
+      }
 
       gsap.to(headingRef.current, {
         backgroundSize: "100% 100%",
@@ -140,9 +159,9 @@ const About = () => {
       {/* Heading */}
       <div className="flex justify-center items-center">
         <h1
-          className="text-[11rem] px-2 uppercase font-extrabold tracking-tighter text-transparent bg-clip-text"
+          className="lg:text-[11rem] mb-10 text-6xl px-2 uppercase font-extrabold tracking-tighter text-transparent bg-clip-text"
           style={{
-            WebkitTextStroke: "1px #e5e7ebcc", // sirf border/stroke shuru mein
+            WebkitTextStroke: "1px #e5e7ebcc",
             backgroundImage: "linear-gradient(to right, #e5e7ebcc, #e5e7ebcc)",
             backgroundSize: "0% 100%",
             backgroundRepeat: "no-repeat",
@@ -154,10 +173,10 @@ const About = () => {
       </div>
 
       {/* Text + Button */}
-      <div className="flex flex-col justify-center items-center w-1/2 text-center gap-10">
+      <div className="flex flex-col justify-center items-center lg:w-1/2 w-full px-5 lg:px-0 text-center gap-10">
         <p
           ref={paraRef}
-          className="text-2xl font-bold text-white/70 leading-relaxed tracking-wide"
+          className="lg:text-2xl text-xl font-bold text-white/70 leading-relaxed tracking-wide"
           style={{
             clipPath: "inset(0 0 100% 0)",
           }}
@@ -172,7 +191,7 @@ const About = () => {
         <div
           onClick={() => smoothScrollTo("contact")}
           ref={btnRef}
-          className="text-2xl cursor-pointer font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-blue-500 rounded-full p-2 px-4"
+          className="lg:text-2xl text-xl cursor-pointer font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-blue-500 rounded-full p-2 px-4"
         >
           <h1 className="tracking-tighter flex items-center gap-2 text-center uppercase font-extrabold w-full bg-linear-to-br from-blue-500 to-pink-500 bg-clip-text text-transparent">
             contact me
@@ -180,23 +199,26 @@ const About = () => {
         </div>
       </div>
 
-      <div ref={reactImgRef} className="absolute top-10 left-10 opacity-0">
+      <div
+        ref={reactImgRef}
+        className="absolute lg:top-10 lg:left-10 top-0 -left-20 -z-50 lg:z-0 opacity-0 lg:scale-100 scale-40"
+      >
         <Image src="/react1.png" alt="React Logo" width={200} height={200} />
       </div>
       <div
         ref={jsImgRef}
-        className="absolute top-0 right-0 opacity-0 rotate-10"
+        className="absolute lg:top-0 lg:right-0 top-30 -right-25 opacity-0 -z-50 lg:z-0 rotate-10 lg:scale-100 scale-40"
       >
         <Image
           src="/typescript.png"
-          alt="Javascript Logo"
+          alt="typescript Logo"
           width={200}
           height={200}
         />
       </div>
       <div
         ref={nextImgRef}
-        className="absolute bottom-7 right-50 opacity-0 -rotate-5 overflow-hidden rounded-full w-[200px] h-[200px]"
+        className="absolute lg:bottom-20 lg:right-60 bottom-50 -right-10 opacity-0 -z-50 lg:z-0 -rotate-5 overflow-hidden rounded-full w-[200px] h-[200px] lg:scale-100 scale-40"
       >
         <Image
           src="/nextjs1.jpg"
@@ -208,7 +230,7 @@ const About = () => {
       </div>
       <div
         ref={nodeImgRef}
-        className="absolute bottom-10 -left-10 -rotate-10 opacity-0"
+        className="absolute lg:bottom-10 lg:-left-15 bottom-80 -left-20 -rotate-10 -z-50 lg:z-0 opacity-0 lg:scale-100 scale-40"
       >
         <Image src="/nodejs.png" alt="nodejs Logo" width={200} height={200} />
       </div>

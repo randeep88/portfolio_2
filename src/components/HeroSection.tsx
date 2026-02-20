@@ -61,17 +61,34 @@ const HeroSection = () => {
     >
       <Navbar />
 
-      <div className="w-full flex justify-center items-center select-none">
-        <h1 className="absolute -z-10 top-0 text-[10rem] tracking-tighter text-center uppercase font-extrabold w-full bg-linear-to-b from-white via-white/70 to-white/10 bg-clip-text text-transparent">
+      <div className="w-full flex lg:flex-row flex-col justify-center items-center select-none px-5">
+        <div className="flex relative items-center justify-end w-full lg:hidden">
+          <Link
+            href="https://drive.google.com/file/d/1pJSjXDzb8P_-luXzm7h78W3b0n1zkM5y/view?usp=sharing"
+            target="_blank"
+            className="absolute -left-10 top-1/2 -rotate-90 flex items-center gap-2 lg:text-3xl font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-white/70 rounded-full lg:p-2 lg:px-4 p-1 px-2"
+          >
+            Resume
+            <ArrowUpRight
+              color="orange"
+              className="rotate-90"
+              strokeWidth={4}
+            />
+          </Link>
+          <div>
+            <Image src="/pic2.png" alt="Profile" width={250} height={250} />
+          </div>
+        </div>
+        <h1 className="lg:absolute mt-5 lg:mt-0 -z-10 lg:top-10 lg:text-[10rem] text-7xl tracking-tighter lg:text-center text-left uppercase font-extrabold w-full bg-linear-to-b lg:from-white from-white/80 via-white/70 lg:to-white/10 to-white/80 bg-clip-text text-transparent">
           Hey, I'm Randeep
         </h1>
 
-        <div ref={imageRef} className="absolute bottom-4">
+        <div ref={imageRef} className="absolute bottom-4 hidden lg:block">
           <Image src="/pic2.png" alt="Profile" width={450} height={450} />
         </div>
 
-        <div className="absolute bottom-1/2 left-30 w-80">
-          <p className="text-xl font-bold text-white/70 uppercase tracking-tight">
+        <div className="lg:absolute lg:bottom-1/2 lg:left-30 w-80 m-0 mt-3">
+          <p className="lg:text-xl text-lg font-bold text-white/70 uppercase lg:tracking-tight">
             a full stack developer Crafting Stunning Websites using javascript
             magic
           </p>
@@ -80,7 +97,7 @@ const HeroSection = () => {
         <Link
           href="https://drive.google.com/file/d/1pJSjXDzb8P_-luXzm7h78W3b0n1zkM5y/view?usp=sharing"
           target="_blank"
-          className="absolute -rotate-10 bottom-1/2 right-40 flex items-center gap-2 text-3xl font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-white/70 rounded-full p-2 px-4"
+          className="lg:absolute hidden lg:-rotate-10 lg:bottom-1/2 lg:right-40 lg:flex items-center gap-2 lg:text-3xl font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-white/70 rounded-full lg:p-2 lg:px-4 p-1 px-2"
         >
           Resume <ArrowUpRight color="red" strokeWidth={4} />
         </Link>

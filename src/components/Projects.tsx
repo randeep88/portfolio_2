@@ -85,9 +85,9 @@ const Projects = () => {
     return () => ctx.revert();
   }, []);
   return (
-    <div id="projects" ref={sectionRef} className="select-none mt-10 relative">
+    <div id="projects" ref={sectionRef} className="select-none mt-10">
       <h1
-        className="text-[11rem] text-center uppercase font-extrabold -mb-30 tracking-tighter text-transparent bg-clip-text"
+        className="lg:text-[11rem] text-center lg:-mb-10 -mb-40 text-6xl px-2 uppercase font-extrabold tracking-tighter text-transparent bg-clip-text"
         style={{
           WebkitTextStroke: "1px #e5e7ebcc",
           backgroundImage: "linear-gradient(to right, #e5e7ebcc, #e5e7ebcc)",
@@ -102,41 +102,41 @@ const Projects = () => {
         {projects?.map((item) => (
           <ScrollStackItem
             key={item.id}
-            itemClassName="border-2 border-white/70 h-150 backdrop-blur-xl bg-background p-5"
+            itemClassName="border-2 border-white/70 h-150 backdrop-blur-xl bg-background p-5 w-full"
           >
             <div className="h-full flex flex-col">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-5">
-                  <h2 className="font-extrabold text-5xl text-primary/80">
+                <div className="flex items-center lg:gap-5 gap-2">
+                  <h2 className="font-extrabold lg:text-5xl text-2xl text-primary/80">
                     {item.id}
                   </h2>
-                  <h1 className="font-extrabold text-5xl text-primary">
+                  <h1 className="font-extrabold lg:text-5xl text-2xl text-primary">
                     {item.name}
                   </h1>
                 </div>
-                <div className="flex items-center gap-5">
+                <div className="flex items-center lg:gap-5 gap-2">
                   <Link
                     href={item.code}
                     target="_blank"
-                    className="flex items-center gap-2 text-xl font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-white/70 rounded-full p-2 px-5"
+                    className="flex items-center gap-2 lg:text-xl text-sm font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-white/70 rounded-full lg:p-2 p-1 lg:px-5 px-3"
                   >
                     Code
                   </Link>
                   <Link
                     href={item.live}
                     target="_blank"
-                    className="flex items-center gap-2 text-xl font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-white/70 rounded-full p-2 px-5"
+                    className="flex items-center gap-2 lg:text-xl text-sm font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-white/70 rounded-full lg:p-2 p-1 lg:px-5 px-3"
                   >
                     Live
                   </Link>
                 </div>
               </div>
-              <div className="mt-5 flex items-start gap-5 h-full">
+              <div className="mt-5 flex flex-col lg:flex-row items-start gap-5 h-full w-full">
                 <div className="h-full">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="rounded-4xl overflow-hidden w-full h-121 object-cover"
+                    className="lg:rounded-4xl rounded-xl overflow-hidden w-full lg:h-121 h-30 object-cover"
                   />
                 </div>
                 <div className="flex-1 w-full text-lg h-full flex flex-col items-between">
