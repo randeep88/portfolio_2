@@ -169,12 +169,12 @@ const Contact = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="flex text-black flex-col space-y-5 items-center justify-center lg:w-150 w-full"
         >
-          <div className="flex flex-col items-start gap-2 w-full">
+          <div className="flex flex-col items-start gap-1 w-full">
             <label htmlFor="name">Full Name</label>
             <div className="w-full">
               <Input
                 placeholder="e.g., John Doe"
-                className="border-2 border-background/50 w-full placeholder:text-gray-600 text-xl"
+                className="border-2 border-background/50 w-full placeholder:text-gray-600"
                 {...register("name", {
                   required: "Name is required",
                   minLength: {
@@ -188,7 +188,7 @@ const Contact = () => {
               )}
             </div>
           </div>
-          <div className="flex flex-col items-start gap-2 w-full">
+          <div className="flex flex-col items-start gap-1 w-full">
             <label htmlFor="name">Email Address</label>
             <div className="w-full">
               <Input
@@ -207,7 +207,7 @@ const Contact = () => {
               )}
             </div>
           </div>
-          <div className="flex flex-col items-start gap-2 w-full">
+          <div className="flex flex-col items-start gap-1 w-full">
             <label htmlFor="name">Message</label>
             <div className="w-full">
               <Textarea
