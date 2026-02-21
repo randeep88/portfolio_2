@@ -11,9 +11,7 @@ const HomePage = () => {
       <HeroSection />
       <About />
       <Skills />
-      <div className="relative z-10 overflow-visible">
-        <Projects />
-      </div>
+      <Projects />
       <Contact />
       <Footer />
     </div>

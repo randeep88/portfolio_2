@@ -159,7 +159,7 @@ const About = () => {
       {/* Heading */}
       <div className="flex justify-center items-center">
         <h1
-          className="lg:text-[11rem] mb-10 text-6xl px-2 uppercase font-extrabold tracking-tighter text-transparent bg-clip-text"
+          className="lg:text-[11rem] hidden lg:block mb-10 text-6xl px-2 uppercase font-extrabold tracking-tighter text-transparent bg-clip-text"
           style={{
             WebkitTextStroke: "1px #e5e7ebcc",
             backgroundImage: "linear-gradient(to right, #e5e7ebcc, #e5e7ebcc)",
@@ -170,17 +170,26 @@ const About = () => {
         >
           About Me
         </h1>
+        <h1 className="lg:text-[11rem] block lg:hidden mb-10 text-6xl px-2 uppercase font-extrabold tracking-tighter text-primary/80">
+          About Me
+        </h1>
       </div>
-
       {/* Text + Button */}
       <div className="flex flex-col justify-center items-center lg:w-1/2 w-full px-5 lg:px-0 text-center gap-10">
         <p
           ref={paraRef}
-          className="lg:text-2xl text-xl font-bold text-white/70 leading-relaxed tracking-wide"
+          className="lg:text-2xl text-xl hidden lg:block font-bold text-white/70 leading-relaxed tracking-wide"
           style={{
             clipPath: "inset(0 0 100% 0)",
           }}
         >
+          Just a developer who loves building real things. I mainly work with
+          React.js and Next.js, turning ideas into working products. I focus on
+          building clean UIs and writing scalable, production-level code —
+          constantly learning and improving along the way.
+          <br /> Let's build something crazy together!
+        </p>
+        <p className="lg:text-2xl text-xl font-bold block lg:hidden text-white/70 leading-relaxed tracking-wide">
           Just a developer who loves building real things. I mainly work with
           React.js and Next.js, turning ideas into working products. I focus on
           building clean UIs and writing scalable, production-level code —
@@ -198,16 +207,15 @@ const About = () => {
           </h1>
         </div>
       </div>
-
       <div
         ref={reactImgRef}
-        className="absolute lg:top-10 lg:left-10 top-0 -left-20 -z-50 lg:z-0 opacity-0 lg:scale-100 scale-40"
+        className="absolute lg:top-10 hidden lg:block lg:left-10 top-0 -left-20 -z-50 lg:z-0 opacity-0 lg:scale-100 scale-40"
       >
         <Image src="/react1.png" alt="React Logo" width={200} height={200} />
       </div>
       <div
         ref={jsImgRef}
-        className="absolute lg:top-0 lg:right-0 top-30 -right-25 opacity-0 -z-50 lg:z-0 rotate-10 lg:scale-100 scale-40"
+        className="absolute lg:top-0 hidden lg:block lg:right-0 top-30 -right-25 opacity-0 -z-50 lg:z-0 rotate-10 lg:scale-100 scale-40"
       >
         <Image
           src="/typescript.png"
@@ -218,7 +226,7 @@ const About = () => {
       </div>
       <div
         ref={nextImgRef}
-        className="absolute lg:bottom-20 lg:right-60 bottom-50 -right-10 opacity-0 -z-50 lg:z-0 -rotate-5 overflow-hidden rounded-full w-[200px] h-[200px] lg:scale-100 scale-40"
+        className="absolute lg:bottom-20 hidden lg:block lg:right-60 bottom-50 -right-10 opacity-0 -z-50 lg:z-0 -rotate-5 overflow-hidden rounded-full w-[200px] h-[200px] lg:scale-100 scale-40"
       >
         <Image
           src="/nextjs1.jpg"
@@ -230,9 +238,27 @@ const About = () => {
       </div>
       <div
         ref={nodeImgRef}
-        className="absolute lg:bottom-10 lg:-left-15 bottom-80 -left-20 -rotate-10 -z-50 lg:z-0 opacity-0 lg:scale-100 scale-40"
+        className="absolute lg:bottom-10 hidden lg:block lg:-left-15 bottom-80 -left-20 -rotate-10 -z-50 lg:z-0 opacity-0 lg:scale-100 scale-40"
       >
         <Image src="/nodejs.png" alt="nodejs Logo" width={200} height={200} />
+      </div>
+
+      {/* mobile */}
+      <div className="absolute bottom-50 -right-20 -rotate-5 overflow-hidden lg:hidden rounded-full w-[200px] h-[200px] lg:scale-100 scale-40">
+        <Image src="/nextjs1.jpg" alt="nodejs Logo" width={200} height={200} />
+      </div>
+
+      <div className="absolute lg:hidden -top-5 -right-25 rotate-10 scale-40">
+        <Image
+          src="/typescript.png"
+          alt="React Logo"
+          width={200}
+          height={200}
+        />
+      </div>
+
+      <div className="absolute lg:hidden bottom-80 -left-22 -rotate-20 scale-40">
+        <Image src="/nodejs.png" alt="React Logo" width={200} height={200} />
       </div>
     </div>
   );

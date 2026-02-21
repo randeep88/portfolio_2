@@ -118,12 +118,12 @@ const Contact = () => {
     <div
       ref={sectionRef}
       id="contact"
-      className="h-screen w-full bg-gray-300 rounded-t-[60px] flex items-center select-none relative"
+      className="h-screen w-full overflow-hidden bg-gray-300 lg:rounded-t-[60px] rounded-t-[30px] flex flex-col lg:flex-row items-center select-none relative lg:mt-0 mt-60"
     >
-      <div className="uppercase text-black font-extrabold text-9xl tracking-tighter flex flex-col items-center justify-center w-1/2">
+      <div className="uppercase text-black font-extrabold text-9xl tracking-tighter flex flex-col items-center justify-center w-full lg:py-0 my-10 mt-20 lg:w-1/2">
         <div>
           <h1
-            className="text-9xl uppercase font-extrabold tracking-tighter text-transparent bg-clip-text"
+            className="text-9xl hidden lg:block uppercase font-extrabold tracking-tighter text-transparent bg-clip-text"
             style={{
               WebkitTextStroke: "1px black",
               backgroundImage: "linear-gradient(to right, black, black)",
@@ -136,7 +136,10 @@ const Contact = () => {
             <br /> get in
             <br /> touch
           </h1>
-          <div className="flex items-center justify-start w-full gap-5 mt-5">
+          <h1 className="text-6xl lg:hidden text-center uppercase font-extrabold tracking-tighter text-black">
+            let's get <br /> in touch
+          </h1>
+          <div className="flex items-center lg:justify-start justify-center w-full gap-5 mt-5">
             <Link
               target="_blank"
               href="https://www.instagram.com/randeep_ramgarhia88/"
@@ -161,10 +164,10 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <div className="w-1/2">
+      <div className="lg:w-1/2 w-full px-10 lg:px-0">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex text-black flex-col space-y-5 items-center justify-center w-150"
+          className="flex text-black flex-col space-y-5 items-center justify-center lg:w-150 w-full"
         >
           <div className="flex flex-col items-start gap-2 w-full">
             <label htmlFor="name">Full Name</label>
@@ -231,18 +234,34 @@ const Contact = () => {
         </form>
       </div>
 
-      <div ref={reactImgRef} className="absolute bottom-50 -left-10 opacity-0">
+      <div
+        ref={reactImgRef}
+        className="absolute bottom-50 -left-10 opacity-0 hidden lg:block"
+      >
         <Image src="/mail.png" alt="React Logo" width={250} height={250} />
       </div>
       <div
         ref={jsImgRef}
-        className="absolute rotate-30 top-0 right-0 opacity-0"
+        className="absolute rotate-30 top-0 right-0 opacity-0 hidden lg:block"
       >
         <Image
           src="/flash.png"
           alt="Javascript Logo"
           width={200}
           height={200}
+        />
+      </div>
+
+      {/* mobile */}
+      <div
+        ref={jsImgRef}
+        className="absolute rotate-20 -top-10 -right-12 lg:hidden"
+      >
+        <Image
+          src="/flash.png"
+          alt="Javascript Logo"
+          width={150}
+          height={150}
         />
       </div>
     </div>

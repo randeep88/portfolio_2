@@ -46,7 +46,7 @@ const IMAGES_ROW_B = [
 
 export function ScrollingLogos() {
   return (
-    <div className="absolute bottom-30 flex w-full flex-col items-center justify-center py-8 my-20">
+    <div className="absolute bottom-30 hidden lg:flex w-full flex-col items-center justify-center py-8 my-20">
       <ScrollVelocityContainer className="w-full">
         <ScrollVelocityRow baseVelocity={6} direction={1} className="py-4">
           {IMAGES_ROW_A.map((Icon, idx) => (

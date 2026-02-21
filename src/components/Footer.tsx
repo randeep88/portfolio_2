@@ -66,11 +66,11 @@ const Footer = () => {
     <div
       id="footer"
       ref={sectionRef}
-      className="select-none bg-gray-300 flex items-center justify-center h-80 mb-10"
+      className="select-none bg-gray-300 flex flex-col lg:flex-row items-center justify-center lg:h-80 h-120 mb-10"
     >
-      <div className="flex items-center justify-between px-20 rounded-t-[60px] w-full h-full bg-background p-10">
+      <div className="flex flex-col lg:flex-row items-center justify-between px-20 rounded-t-[60px] w-full h-full bg-background p-10">
         <h1
-          className="text-8xl px-1 text-left uppercase font-extrabold tracking-tighter text-transparent bg-clip-text"
+          className="text-8xl lg:block hidden px-1 text-left uppercase font-extrabold tracking-tighter text-transparent bg-clip-text"
           style={{
             WebkitTextStroke: "1px #e5e7ebcc",
             backgroundImage: "linear-gradient(to right, #e5e7ebcc, #e5e7ebcc)",
@@ -83,7 +83,12 @@ const Footer = () => {
           <br />
           Singh
         </h1>
-        <div className="flex flex-col items-start justify-center gap-5 h-full">
+        <h1 className="text-6xl mt-5 mb-10 lg:hidden text-center uppercase font-extrabold tracking-tighter text-primary/80">
+          Randeep
+          <br />
+          Singh
+        </h1>
+        <div className="flex lg:flex-col flex-row items-start justify-center gap-5 h-full">
           {navLinks1.map(({ label, href }) => (
             <button
               key={href}
@@ -101,7 +106,7 @@ const Footer = () => {
             </button>
           ))}
         </div>
-        <div className="flex flex-col items-start justify-center gap-5 h-full">
+        <div className="flex flex-row lg:flex-col items-start justify-center gap-5 h-full">
           {navLinks2.map(({ label, href }) => (
             <button
               key={href}
@@ -119,7 +124,7 @@ const Footer = () => {
             </button>
           ))}
         </div>
-        <div className="flex flex-col items-start justify-center gap-5 h-full">
+        <div className="flex lg:flex-col flex-row items-start justify-center gap-5 h-full">
           {socialLinks.map(({ label, href }) => (
             <Link
               target="_blank"
