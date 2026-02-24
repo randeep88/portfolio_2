@@ -7,7 +7,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { icons } from "./svgs";
 import { ScrollingLogos } from "./ScrollingLogos";
-import { StickyScroll } from "./ui/sticky-scroll-reveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -60,6 +59,21 @@ const projects = [
       icons.mini_react,
       icons.mini_js,
       icons.mini_supabase,
+      icons.mini_tailwind,
+    ],
+  },
+  {
+    id: "04",
+    title: "Review AI",
+    description:
+      "Built an AI-powered code review platform that analyzes user-submitted code and provides structured feedback including bug detection, security analysis, performance improvements, refactored code suggestions, and a quality score. Implemented real-time streaming responses for a seamless user experience along with rate limiting and optimized token control to ensure scalable and cost-efficient AI integration.",
+    image: "/review-ai.png",
+    code: "https://github.com/randeep88/ai-code-reviewer",
+    live: "https://ai-code-reviewer-r.vercel.app",
+    techstack: [
+      icons.mini_next,
+      icons.mini_typescript,
+      icons.mini_groq,
       icons.mini_tailwind,
     ],
   },

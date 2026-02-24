@@ -24,6 +24,7 @@ const Contact = () => {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const reactImgRef = useRef<HTMLDivElement>(null);
   const jsImgRef = useRef<HTMLDivElement>(null);
+  const jsImgMobileRef = useRef<HTMLDivElement>(null);
 
   const [result, setResult] = useState("");
   const {
@@ -54,6 +55,24 @@ const Contact = () => {
 
       gsap.fromTo(
         jsImgRef.current,
+        { x: 400, y: -500, opacity: 0 },
+        {
+          x: 0,
+          y: 0,
+          opacity: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 90%",
+            end: "top 10%",
+            scrub: 1,
+          },
+          delay: 2,
+        },
+      );
+
+      gsap.fromTo(
+        jsImgMobileRef.current,
         { x: 400, y: -500, opacity: 0 },
         {
           x: 0,
@@ -118,7 +137,7 @@ const Contact = () => {
     <div
       ref={sectionRef}
       id="contact"
-      className="h-screen w-full overflow-hidden bg-gray-300 lg:rounded-t-[60px] rounded-t-[30px] flex flex-col lg:flex-row items-center select-none relative lg:mt-0 mt-60"
+      className="h-screen w-full overflow-hidden lg:overflow-visible bg-gray-300 lg:rounded-t-[60px] rounded-t-[30px] flex flex-col lg:flex-row items-center select-none relative lg:mt-0 mt-60"
     >
       <div className="uppercase text-black font-extrabold text-9xl tracking-tighter flex flex-col items-center justify-center w-full lg:py-0 my-10 mt-20 lg:w-1/2">
         <div>
@@ -236,13 +255,13 @@ const Contact = () => {
 
       <div
         ref={reactImgRef}
-        className="absolute bottom-50 -left-10 opacity-0 hidden lg:block"
+        className="absolute bottom-50 -left-10 opacity-0 hidden md:block"
       >
         <Image src="/mail.png" alt="React Logo" width={250} height={250} />
       </div>
       <div
         ref={jsImgRef}
-        className="absolute rotate-30 top-0 right-0 opacity-0 hidden lg:block"
+        className="absolute rotate-30 top-0 right-0 opacity-0 hidden md:block"
       >
         <Image
           src="/flash.png"
@@ -254,7 +273,7 @@ const Contact = () => {
 
       {/* mobile */}
       <div
-        ref={jsImgRef}
+        ref={jsImgMobileRef}
         className="absolute rotate-20 -top-10 -right-12 lg:hidden"
       >
         <Image
