@@ -21,7 +21,7 @@ const SmoothScrollProvider = ({ children }: SmoothScrollProviderProps) => {
 
     let currentY = window.scrollY;
     let rafId = 0;
-    const ease = 0.025;
+    const ease = 0.075;
 
     const setDimensions = () => {
       document.body.style.height = content.scrollHeight + "px";
