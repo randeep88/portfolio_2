@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { icons } from "./svgs";
 import { ScrollingLogos } from "./ScrollingLogos";
+import Stack from "@/components/Stack";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,7 +37,7 @@ const projects = [
       "Developed a full-stack music streaming application with secure OTP-based authentication, personalized user libraries, advanced playback controls, and optimized search for songs, artists, and albums. Focused on scalable backend design and an intuitive frontend user experience.",
     image: "/nebula.png",
     code: "https://github.com/randeep88/nebula_frontend",
-    live: "https://nebula-frontend-one.vercel.app/",
+    live: "https://nebula-music.netlify.app/",
     techstack: [
       icons.mini_react,
       icons.mini_nodejs,
@@ -49,16 +50,19 @@ const projects = [
   },
   {
     id: "03",
-    title: "The Verdant Stay",
+    title: "Keystroq",
     description:
-      "Built a hotel management system with secure admin authentication, real-time check-in/check-out tracking, and an interactive dashboard displaying bookings, occupancy status, and customer data.Implemented real-time data synchronization and storage.",
-    image: "/verdant.png",
-    code: "https://github.com/randeep88/verdant-stay",
-    live: "https://the-verdant-stay.netlify.app/",
+      "Keystroq is a real-time 1v1 typing competition platform built with Next.js and WebSockets, where users compete against each other to test their typing speed and accuracy. It provides live typing sessions with real-time WPM (Words Per Minute) and accuracy tracking, creating an engaging and competitive experience. The platform focuses on low-latency communication, synchronized gameplay, and an interactive user experience, combining real-time web technologies with competitive elements to make typing practice more exciting.",
+    image: "/keystroq.png",
+    code: "https://github.com/randeep88/keystroq",
+    live: "https://keystroq.vercel.app/",
     techstack: [
-      icons.mini_react,
+      icons.mini_next,
+      icons.mini_typescript,
       icons.mini_js,
-      icons.mini_supabase,
+      icons.mini_zustand,
+      icons.mini_redis,
+      icons.mini_sockets,
       icons.mini_tailwind,
     ],
   },
@@ -121,123 +125,81 @@ const Projects = () => {
         Projects
       </h1>
 
-      <ScrollStack itemScale={0} className="w-full lg:block hidden">
-        {projects?.map((item) => (
-          <ScrollStackItem
-            key={item.id}
-            itemClassName="border-2 border-white/70 h-150 backdrop-blur-xl bg-background p-5 w-full"
-          >
-            <div className="h-full flex flex-col">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center lg:gap-5 gap-2">
-                  <h2 className="font-extrabold lg:text-5xl text-2xl text-primary/80">
-                    {item.id}
-                  </h2>
-                  <h1 className="font-extrabold lg:text-5xl text-2xl text-primary">
-                    {item.title}
-                  </h1>
+      <div className="w-full h-screen lg:mt-40">
+        <Stack
+          layout="fan"
+          sendToBackOnClick={false}
+          cards={projects.map((item, i) => (
+            <div
+              key={item.id}
+              className="border-2 border-white/70 lg:h-[70%] h-[80%] backdrop-blur-xl bg-background p-5 lg:w-[80%] w-[95%] mx-auto rounded-2xl"
+            >
+              <div className="h-full flex flex-col">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center lg:gap-5 gap-2">
+                    <h2 className="font-extrabold lg:text-5xl text-2xl text-primary/80">
+                      {item.id}
+                    </h2>
+                    <h1 className="font-extrabold lg:text-5xl text-2xl text-primary">
+                      {item.title}
+                    </h1>
+                  </div>
+                  <div className="flex items-center lg:gap-5 gap-2">
+                    <Link
+                      href={item.code}
+                      target="_blank"
+                      className="flex items-center gap-2 lg:text-xl text-sm font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-white/70 rounded-full lg:p-2 p-1 lg:px-5 px-3"
+                    >
+                      Code
+                    </Link>
+                    <Link
+                      href={item.live}
+                      target="_blank"
+                      className="flex items-center gap-2 lg:text-xl text-sm font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-white/70 rounded-full lg:p-2 p-1 lg:px-5 px-3"
+                    >
+                      Live
+                    </Link>
+                  </div>
                 </div>
-                <div className="flex items-center lg:gap-5 gap-2">
-                  <Link
-                    href={item.code}
-                    target="_blank"
-                    className="flex items-center gap-2 lg:text-xl text-sm font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-white/70 rounded-full lg:p-2 p-1 lg:px-5 px-3"
-                  >
-                    Code
-                  </Link>
-                  <Link
-                    href={item.live}
-                    target="_blank"
-                    className="flex items-center gap-2 lg:text-xl text-sm font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-white/70 rounded-full lg:p-2 p-1 lg:px-5 px-3"
-                  >
-                    Live
-                  </Link>
-                </div>
-              </div>
-              <div className="mt-5 flex flex-col lg:flex-row items-start gap-5 h-full w-full">
-                <div className="h-full">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="lg:rounded-4xl rounded-xl overflow-hidden w-full lg:h-121 h-30 object-cover"
-                  />
-                </div>
-                <div className="flex-1 w-full text-lg h-full flex flex-col items-between">
-                  <div className="text-primary h-full">{item.description}</div>
-                  <div className="rounded-4xl flex items-center flex-wrap gap-4">
-                    {item.techstack.map((Icon: any, idx: number) => (
-                      <div key={idx}>
-                        <Icon />
-                      </div>
-                    ))}
+                <div className="mt-5 flex flex-col lg:flex-row items-start gap-5 h-10 flex-1 w-full">
+                  <div className="h-full">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="lg:rounded-4xl rounded-xl overflow-hidden w-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 w-full h-full flex flex-col items-between">
+                    <div className="text-primary h-full lg:text-lg text-xs">
+                      {item.description}
+                    </div>
+                    <div className="rounded-4xl flex items-center flex-wrap gap-4 scale-75">
+                      {item.techstack.map((Icon: any, idx: number) => (
+                        <div key={idx}>
+                          <Icon />
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </ScrollStackItem>
-        ))}
-      </ScrollStack>
-
-      {/* mobile */}
-      <div className="lg:hidden px-2 flex flex-col items-start justify-center gap-5">
-        {projects?.map((item) => (
-          <div
-            key={item.id}
-            className="border-2 border-white/70 backdrop-blur-xl bg-background rounded-3xl p-5 w-full"
-          >
-            <div className="h-full flex flex-col">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <h2 className="font-extrabold text-xl text-primary/80">
-                    {item.id}
-                  </h2>
-                  <h1 className="font-extrabold text-xl text-primary">
-                    {item.title}
-                  </h1>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Link
-                    href={item.code}
-                    target="_blank"
-                    className="flex items-center gap-2 text-sm font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-white/70 rounded-full p-1 px-3"
-                  >
-                    Code
-                  </Link>
-                  <Link
-                    href={item.live}
-                    target="_blank"
-                    className="flex items-center gap-2 text-sm font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-white/70 rounded-full p-1 px-3"
-                  >
-                    Live
-                  </Link>
-                </div>
-              </div>
-              <div className="mt-5 flex flex-col lg:flex-row items-start gap-5 h- w-full">
-                <div className="h-40">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="rounded-xl overflow-hidden w-full h-full object-cover"
-                  />
-                </div>
-                <div className="flex-1 w-full lg:text-lg h-full flex flex-col gap-5 items-between">
-                  <div className="text-primary text-pretty h-full">
-                    {item.description}
-                  </div>
-                  <div className="rounded-4xl flex items-center flex-wrap gap-4">
-                    {item.techstack.map((Icon: any, idx: number) => (
-                      <div key={idx}>
-                        <Icon />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
+          ))}
+          visible={4}
+          spread={0.5}
+          depth={1}
+          radius={16}
+          frame={0}
+          frameColor="#ffffff"
+          shadow
+          tilt={21}
+          threshold={100}
+          speed={0.5}
+          autoplay
+          autoplayDelay={2000}
+          pauseOnHover={true}
+        />
       </div>
-      <ScrollingLogos />
     </div>
   );
 };

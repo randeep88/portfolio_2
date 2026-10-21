@@ -22,7 +22,7 @@ const smoothScrollTo = (targetId: string) => {
 const socialLinks = [
   {
     label: "Instagram",
-    href: "https://www.instagram.com/randeep_ramgarhia88/",
+    href: "https://www.instagram.com/justrandeep/",
   },
   { label: "Github", href: "https://github.com/randeep88" },
   { label: "Linkedin", href: "https://www.linkedin.com/in/randeep-singh88/" },

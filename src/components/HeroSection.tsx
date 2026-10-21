@@ -64,7 +64,7 @@ const HeroSection = () => {
       <div className="w-full flex lg:flex-row flex-col justify-center items-center select-none px-5">
         <div className="flex relative items-center justify-end w-full lg:hidden">
           <Link
-            href="https://drive.google.com/file/d/1pJSjXDzb8P_-luXzm7h78W3b0n1zkM5y/view?usp=sharing"
+            href="https://drive.google.com/file/d/1RY-pKO0hL8pM7Ja6XBqPp49ht6H0Vt_e/view?usp=sharing"
             target="_blank"
             className="absolute -left-10 top-1/2 -rotate-90 flex items-center gap-2 lg:text-3xl font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-white/70 rounded-full lg:p-2 lg:px-4 p-1 px-2"
           >
@@ -95,7 +95,7 @@ const HeroSection = () => {
         </div>
 
         <Link
-          href="https://drive.google.com/file/d/1pJSjXDzb8P_-luXzm7h78W3b0n1zkM5y/view?usp=sharing"
+          href="https://drive.google.com/file/d/1RY-pKO0hL8pM7Ja6XBqPp49ht6H0Vt_e/view?usp=sharing"
           target="_blank"
           className="lg:absolute hidden lg:-rotate-10 lg:bottom-1/2 lg:right-40 lg:flex items-center gap-2 lg:text-3xl font-black text-white/70 uppercase hover:scale-110 transition-all duration-300 border-2 border-white/70 rounded-full lg:p-2 lg:px-4 p-1 px-2"
         >
