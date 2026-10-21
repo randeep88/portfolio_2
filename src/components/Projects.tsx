@@ -1,12 +1,10 @@
 "use client";
 
-import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { icons } from "./svgs";
-import { ScrollingLogos } from "./ScrollingLogos";
 import Stack from "@/components/Stack";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -170,7 +168,7 @@ const Projects = () => {
                     />
                   </div>
                   <div className="flex-1 w-full h-full flex flex-col items-between">
-                    <div className="text-primary h-full lg:text-lg text-xs">
+                    <div className="text-primary h-full lg:text-base text-xs">
                       {item.description}
                     </div>
                     <div className="rounded-4xl flex items-center flex-wrap gap-4 scale-75">

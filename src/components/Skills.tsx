@@ -35,6 +35,7 @@ const skills = {
     { name: "MySQL", icon: icons.mini_mysql },
     { name: "Supabase", icon: icons.mini_supabase },
     { name: "Firebase", icon: icons.mini_firebase },
+    { name: "Redis", icon: icons.mini_redis },
   ],
 
   cloud: [
